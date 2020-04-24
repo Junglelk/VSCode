@@ -3,7 +3,7 @@
 ## CODE 
 
 ### Java code  
-暂时主要以JavaProgramming书为基本；
+暂时主要以JavaProgramming书为基本；使用了三重分支，master→CODE→JavaCode。
 ### other  
 暂无
 ## OTHER
