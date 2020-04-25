@@ -4,6 +4,8 @@
 
 ### Java code  
 暂时主要以JavaProgramming书为基本；
+### Javascript 
+刚刚开始，新建文件，仅此而已
 ### other  
 暂无
 ## OTHER
