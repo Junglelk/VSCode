@@ -14,9 +14,10 @@ public class Circle extends GeometricObject {
      * 设置一个自定义圆
      */
     public Circle(double radius,String color, boolean filled){
+        super(color,filled); //super方法必须出现在第一行
         this.radius = radius;
-        setColor(color);
-        setFilled(filled);
+        /*setColor(color);
+        setFilled(filled);*/
     }
     /**
      * @return the radius
