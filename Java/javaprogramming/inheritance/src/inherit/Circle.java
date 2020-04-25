@@ -53,7 +53,7 @@ public class Circle extends GeometricObject {
      * 打印相关的数据
      */
     public void printCircle(){
-        System.out.println("这个圆创建于："+getDateCreated()+"\n半径为："+radius);
+        System.out.println("这个圆创建于："+super.getDateCreated()+"\n半径为："+radius);//在此处super非必须，仅作展示调用普通方法的演示
     }
     
 }
