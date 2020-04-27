@@ -1,34 +1,48 @@
-# 继承
-语法为：  
+# 继承和多态
+
+## 继承
+
+语法为：
+
 ```java
     public class son extends father{
-      /*关键字为extends，son extends father指son继承自father*/      
+      /*关键字为extends，son extends father指son继承自father*/
     }
 ```
+
 * 子类并不是父类的一个子集；
 * 父类中的私有数据域在该类外不可访问；
 * 继承是对“是一种”关系建模，父类与其子类必须存在“是一种”的关系；
-* Java不允许从几个类派生出一个类，即不允许多重继承。但Java中多重继承可以由接口实现。  
-## super关键字
+* Java不允许从几个类派生出一个类，即不允许多重继承。但Java中多重继承可以由接口实现。
+
+### super关键字
+
 由上文及很久之前的this关键字我们已知：
 >子类继承它的父类中所有可访问的数据域和方法；
 >关键字this是对调用对象的引用。  
 关键字super用作两种途径：
+
 * **调用父类的构造方法**  
 * **调用父类的普通方法**
-## 调用父类构造方法
+
+### 调用父类构造方法
+
 不同于属性和普通方法，父类的构造方法不能由子类继承。他们只能由super关键字从子类的**构造方法**中调用。  
 调用父类构造方法的语法是：
+
 ```java
 super()  
 super(arguments)  
 ```
+
 上述调用语句必须出现在子类**构造方法**的第一行，这是显示调用父类构造方法的唯一方法。  
 
-## 构造方法链  
+### 构造方法链
+
 >回顾：重载方法
 >重载方法使得你可以使用同样的名字来定义不同的方法，只要他们参数列表是不同的  
 构造方法可以调用重载的构造方法或父类的构造方法。如果它们都没有被显式调用，编译器就会自动地将super()作为构造方法的第一条语句。意思是如果子类的构造方法不含有super(),编译器在编译时会自动添加上。
+
 ```java  
 public ClassName(){
 
@@ -47,15 +61,16 @@ public ClassName(parameters){
 }
 
 ```
-在任何情况下，构造一个类的实例时，将会调用沿着继承链的所有父类的构造方法。当构造一个子类的对象时，子类构造方法在完成自己的任务之前，首先调用它的父类的构造方法，父类若还有父类，则依次调用，直到持续到沿着这个继承层次结构的最后一个构造方法为止。  
 
+在任何情况下，构造一个类的实例时，将会调用沿着继承链的所有父类的构造方法。当构造一个子类的对象时，子类构造方法在完成自己的任务之前，首先调用它的父类的构造方法，父类若还有父类，则依次调用，直到持续到沿着这个继承层次结构的最后一个构造方法为止。  
 
 另外由于到现在为止的代码均为复制粘贴过来，且不知为何，同样的组织结构在eclipse里可以运行，在此处就不行，可能是因为git的组织方式和Windows的调用有不同。以后再敲代码时再验证具体原因。  
 删除重建后恢复正常。但想必别的也会像这次一样麻烦，暂仅处理这一个。  
 *TIPS:*如果要设计一个可以继承的类，最好提供一个无参构造方法以避免程序设计错误，例如：
+
 ```java
 public class Apple extends Fruit{
-    
+
 }  
 class Fruit{
 
@@ -67,30 +82,35 @@ class Fruit{
 ```  
 
 ## 方法重写
+
 >方法：
 >修饰符  返回值类型  方法名(参数列表){  
->    //方法体  
-> }
->
->这其中，方法名和参数列表一起被称为：**方法签名** 
+>//方法体  
+>这其中，方法名和参数列表一起被称为：**方法签名**
   
 子类从父类中继承方法。有时子类需要修改父类中定义的方法的实现，这成为**方法重写**。  
 
-重写一个方法需要在子类中使用和父类一样的签名来对该方法进行定义。    
+重写一个方法需要在子类中使用和父类一样的签名来对该方法进行定义。
+
 ```java
 public String toString(){
         return super.toString()+"\nradius is" + radius;
     }
 ```
-在Circle类中增添这么一块代码。toString()方法在GEometricObject类中被定义，super.super.toString在Circle类中被重写。这两个方法都可以在Circle中使用，只是要使用父类的toString()使用Super.toString()。在Circle的子类中不可使用super.super.toString
+
+在Circle类中增添这么一块代码。toString()方法在GeometricObject类中被定义，super.super.toString在Circle类中被重写。这两个方法都可以在Circle中使用，只是要使用父类的toString()使用Super.toString()。在Circle的子类中不可使用super.super.toString
+
 * 重写的方法必须与被重写的方法具有一致的签名，以及一样或**兼容**的返回值类型。兼容是值重写方法的返回类型可以是被重写方法的返回类型的子类型。  
 * 仅当实例方法可访问时，它才能被重写。
 * 静态方法也能被继承。但静态方法不能被重写。如果父类中定义的静态方法在子类中被重新定义，那么在父类中定义的静态方法将被隐藏。可以使用语法“父类名.静态方法名”调用隐藏的静态方法。  
   
 ### 方法重写与重载
+
 * 方法重写发生在具有继承关系的不同类中；方法重载可以发生在同一类中，也可以发生在具有继承关系的不同类中。
 * 方法重写具有同样的签名；方法重载具有同样的名字但有不同的参数列表。
+
 为避免错误，可以使用一种特殊的语法，成为*重写标注(override annotation)*，在子类的方法前放一个@Override。例如：
+
 ```java
     public class Circle extends GeometricObject{
         //别的代码
@@ -100,23 +120,25 @@ public String toString(){
         }
     }
 ```
-# 多态
+
+## 多态
   
 面向对象程序设计的三大支柱：封装、继承、多态。  
 多态意味着父类型的变量可以引用子类型的对象。即可以将子类型的实例作为参数传给需要父类型参数的方法。
+
 ```java
 package inherit;
 
 public class PolymorphismDemo {
     public static void main(String[] args) {
         displayObject(new Circle(1,"red",false));
-        displayObject(new Rectangle(1,1,"black",false)); 
+        displayObject(new Rectangle(1,1,"black",false));
     }
-    
+
     public static void displayObject(GeometricObject object) {
 
         System.out.println("创建于 "+object.getDateCreated()+"颜色为"+object.getColor());
-        
+
     }
 }
 
@@ -124,37 +146,44 @@ public class PolymorphismDemo {
 创建于 Sat Apr 25 16:12:31 CST 2020颜色为red
 创建于 Sat Apr 25 16:12:31 CST 2020颜色为black
 ```
-## 动态绑定
+
+### 动态绑定
+
 >Java中所有类都继承自java.lang.Object类，即Object是所有类的父类 // 做我的儿子吧！！！！
 
 关键字：声明类型 实际类型 动态绑定  
 
 考虑以下代码：
+
 ```java
     Object o = new GeometricObject();
     System.out.println(o.toString);
     /*上面那个Object是Java中的终级父类*/
 ```
-此时o调用的是谁的toString？//注：GeometricObject是一个类，内有toString方法。  
+
+此时o调用的是谁的toString？//注：GeometricObject是一个类，内有toString方法。
+
 * 变量必须声明后才可使用，这个类型称为*声明类型*，上例中，o的声明类型是Object。一个引用类型变量可以是一个null值，也可以是一个对声明类型实例的引用。**实例可以使用声明类型或它的子类型的构造方法创建**
 * 变量的*实际类型*是被变量引用的对象的实际类。这里o的实际类型是GeometricObject。
 * o调用哪个toString方法是由o的**实际类型**决定。这称之为**动态绑定**  
 
-
 ## 对象转换和instanceof操作符
+
 上一节中<kbd>m(new Student)</kbd>实际等价于：  
 <kbd>Object o = new Student</kbd><br>
 <kbd>m(o)</kbd><br>
 
 这句<kbd>Object o = new Student</kbd>称为*隐式转换*  
-接下来： 想要把对象引用o赋值给新的Student变量 
+接下来： 想要把对象引用o赋值给新的Student变量
 Student b = o;  
 是错误的，编译器并不知道o是Student类型的变量，需要用*显示转换*  
 Student b = (Student)o;  
+
 * **向上转换**:将一个子类实例转换为一个父类实例
 * **向下转换**:将一个父类实例转换为一个子类实例
   * 向下转换时必须使用类型转换"(子类名)+需转换的实例名"，
-  * 为使转换成功必须判断被转换的对象是转换到的子类的父类实例。用“instanceof”关键字  
+  * 为使转换成功必须判断被转换的对象是转换到的子类的父类实例。用“instanceof”关键字
+
 ```java
 void someMethod(Object myObject){
     if(myObject instanceof Circle){  
@@ -164,5 +193,61 @@ void someMethod(Object myObject){
     }
 }
 ```
-为什么要进行类型转换？因为*声明类型*决定编译时匹配的方法<br><kbd>Object myObject = new Circle(1);</kbd>被声明为Object则其内就没有getDiameter方法，在调用时就会出错，所以要进行类型转换使编译器明白myObject也是一个圆。  
-  
+
+为什么要进行类型转换？因为*声明类型*决定编译时匹配的方法<br><kbd>Object myObject = new Circle(1);</kbd>被声明为Object则其内就没有getDiameter方法，在调用时就会出错，所以要进行类型转换使编译器明白myObject也是一个圆。
+
+### Object的equal方法
+
+签名为<kbd>public boolean equal(Object o)</kbd>  
+
+```java
+    object1.equal(object2);
+```
+
+在Object类中默认实现方法是：
+
+```java
+    public boolean equal(Object obj){
+        return (this==obj);
+    }
+```  
+
+在Circe中重写为：
+
+```java
+ @Override //equals方法
+    public boolean equals(Object o){
+        if(o instanceof Circle){
+            return radius == ((Circle)o).radius;
+        }
+        else return false;
+    }
+```
+
+## **ArrayList**类
+
+Java提供了ArrayList类，可以用来储存不限定个数的对象。
+ArrayList是一个**泛型类**，具有一个泛型类型E。创建一个ArrayList时，可以指定一个具体的类型来替换E。以下是ArrayList的UML图(一时兴起以后应该不会再画UML类图了)。  
+
+|java.util.ArrayList\<E>|
+|-----------|
+|+ArrayList()|
+|+add(e:E):void|
+|+add(index:int,e:E)|
+|+clear():void|
+|+contains(o:Object):boolean|
+|+get(index:int):E|
+|+indexOf(o:Object):int|
+|+isEmpty():boolean|
+|+lastIndexOf(o:Object):int|
+|+remove(o:Object):boolean|
+|+size():int|
+|+remove(index:int):E|
+|+set(index:int,e:E):E|
+
+```java
+ArrayList<String> cities = new ArrayList<String>();
+//JDK7以上，亦可写为
+ArrayList<String> cities = new ArrayList<>();
+//创建一个ArrayList对象，这个对象用于存储字符串
+```
