@@ -251,3 +251,75 @@ ArrayList<String> cities = new ArrayList<String>();
 ArrayList<String> cities = new ArrayList<>();
 //创建一个ArrayList对象，这个对象用于存储字符串
 ```
+
+需注意
+
+```java
+ArrayList<int> list =new ArrayList<>();
+//这样是错误的，因为ArrayList只存储对象
+ArrayList<Integer> list =new ArrayList<>();
+//用整型即可
+```
+
+ArrayList的一些特点：
+
+* 大小灵活，创建时无须给定大小；
+
+* 有诸多有用的方法。
+
+foreach循环遍历
+
+```java
+for(elementType element:arrayList){
+//用element返回arrayList中每一个对象
+//处理element
+}
+```
+
+```java
+ArrayList<Integer> list =new new ArrayList<>();
+...
+//一些填充list的代码
+for(Integer number:list){
+    System.out.println(number+" ");
+}
+
+for(int number:list){/*这种情况下，list中的Integer对象会被自动拆箱为int*/
+    System.out.println(number+" ");
+}
+```
+
+### 关于列表的一些有用的方法  
+
+* 从数组(*Arrays*)创建一个数组列表(*ArrayList*);
+  
+  ```java
+  String[] array    = {"red","green","blue"};
+  ArrayList<String> = new ArrayList<>(Arrays.asList(array));
+  //Arrays中静态方法toList返回一个列表
+  //反过来，列表可以创建数组
+  String[] array1   = new String[list.size()];
+  list.toArray(array1);
+  ```
+
+* 若列表内的元素是可比较的，则可以使用java.util.Collections类中的静态方法sort来排序或打乱列表中的元素。
+
+```java
+Integer[] array = {1,2,5,32,14,89,21,9,15,26,17,,7};
+ArrayList<Integer> list = new ArrayList<>(Arrays.asList(array));
+java.util.Collection.sort(list);//排序，但不知道是升序还是降序
+java.util.Collection.max(list);//返回最大值
+java.util.Collection.min(list);//返回最小值
+java.util.Collection.shuffle(list);//打乱
+```
+
+### 自定义栈
+
+|MyStack|
+|-----------------------|
+|-list:ArrayList\<Object>|
+|+isEmpty():boolean|
+|+getSize():int|
+|+peek():Object|
+|+pop():Object|
+|+push(o:Object):void|
