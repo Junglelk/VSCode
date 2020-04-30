@@ -19,5 +19,6 @@ public class InputMismatchExceptionDemo {
                 input.nextLine();
             }
         }while(continueInput);
+        input.close();//看错误提示看烦了，加了个关闭选项如有错误，以后再删
     }
 }

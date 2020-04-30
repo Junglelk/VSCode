@@ -158,3 +158,45 @@ catch(Exception1 |Exception2 |...| ExceptionN ){
 ### 示例学习：声明、抛出和捕获异常
 
 改写Circle类的setRadius方法来演示
+
+## finally子句
+
+无论什么情况下，finally总会执行。
+
+```java
+try{
+    statements;
+}
+catch(TheException ex){
+    handling ex;
+}
+finally {
+    finalStatements;
+}
+```
+
+即使finally前有return语句，finally依然会执行。
+
+## File类
+
+>file类包含了获得一个文件/目录的属性，以及对文件/目录进行改名和删除的方法。
+
+在文件系统中，每个文件都放在一个目录下。
+
+* 绝对文件名：由文件名和它的完整路径以及驱动器字母组成；
+  * 例如：c:\book\Welcome.java是文件Welcome.java在Windows操作系统上的绝对文件名；
+  * 这里c:\book称为该文件的*目录路径*；
+  * 绝对文件名依赖机器；
+* 相对文件名：相对于当前工作目录。对于相对文件名，完整目录被忽略。
+  * 对于文件Welcome.java来说，Welcome.java就是相对文件名。
+  
+file类不包括读写文件内容的方法。
+
+文件名是一个字符串。file类是文件名及其目录路径的一个包装类。如，在Windows中，语句new File("c:\\book")为目录c:\book创建个File对象。而new File("c:\\book\\test.dat")为文c:\book\test.dat创建了一个File对象。
+>为目录创建对象，为文件创建对象
+>注意：构建一个File实例并不会在机器上创建一个文件。不管文件不存在，都可以创建任意文件名的File实例。可以调用File实例exists()方法判断文件是否存在。
+  
+可以理解为file实例之于文件、目录是一种"寄生"关系，File实例寄生在目录、文件上对文件进行各种操作。
+
+在程序中不要直接使用绝对文件名，否则程序就与编写程序的平台绑定，不利于移植。可以用new File("image/us.gif")这种创建实例方式，其中"/"是Java平台目录分隔符。
+<kbd>java.io.File file = new java.io.File("image/us.gif");</kbd>目录仅到VSCode为止。

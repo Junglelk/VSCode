@@ -27,6 +27,6 @@ public class AdditionTest {
         }
 
         System.out.println("你猜对了");
-
+        input.close();//看内存泄漏提示看烦了
     }
 }
