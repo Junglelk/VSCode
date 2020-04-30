@@ -154,3 +154,7 @@ catch(Exception1 |Exception2 |...| ExceptionN ){
 |+toString():String|返回三个字符串的连接:<br>1)异常类的全名;<br>2)": "冒号和以一个空白;<br>3)gerMessage()方法。|
 |+printStackTrace():void|在控制台上打印Throwable对象和它的调用栈的跟踪信息|
 |+getStackTrace():StackTraceElement[]|返回一个栈跟踪元素的数组，表示该异常相关对象的栈跟踪信息|
+
+### 示例学习：声明、抛出和捕获异常
+
+改写Circle类的setRadius方法来演示
