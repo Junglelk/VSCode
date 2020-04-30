@@ -76,3 +76,81 @@ catch(type ex){
     处理异常的代码
 }//由调用者处理异常
 ```
+
+## 异常类型
+
+Throwable类(可抛出)是所有异常类的根。所有Java异常类都直接或间接地继承自Throwable。可通过继承Exception或Exception的子类来创建自己的异常类。
+这些异常类可分为：
+
+1. 系统错误
+   * 由Java虚拟机抛出，用Error类表示，描述内部系统错误，极少发生，一旦发生几乎只能尽量稳妥地终止程序。如：Java虚拟机崩溃、类不兼容。
+2. 异常
+   * 用Exception类表示，描述的是由你的程序和外部环境所引起的错误，这类错误可以被捕获和处理。如：试图使用一个不存在的类、输入/输出相关的操作。
+3. 运行时异常
+   * 用RunTimeException类表示，描述的是程序设计错误。如错误的类型转换，访问数组越界等。如：整数除以零、数组下标越界、非法参数。
+
+RuntimeException类、Error类和它们的子类都属于**免检异常**，其它异常称为**必检异常**。
+必检异常意味着编译器会强制程序员检查并通过try-catch块处理它们，或在头方法声明。
+免检异常反应不可恢复的逻辑错误，需要在源代码中纠正。
+
+## 其他关于异常处理的讨论
+
+### 声明异常
+
+无需声明RuntimeException类、Error类即*免检异常*，但*必检异常*须声明。
+
+```java
+public void myMethod() throws IOException
+//有多个异常则用逗号分隔
+public void myMethod() throws IOException1,Exception2,Exception3...
+```
+
+如果父类方法中没有声明异常，那么就不能在子类重写方法时声明异常。
+
+### 抛出异常
+
+检测到错误的程序可以创建一个合适的异常类型的实例并抛出它，这称为*抛出一个异常*。例如:程序发现传递给方法的参数与方法的合约不一致，这个程序可以创建一个IllegalArgumentException的一个实例并抛出它。
+
+```java
+IllegalArgumentException ex = new IllegalArgumentException("Wrong Argument！");
+throw ex;
+//或
+throw new IllegalArgumentException("Wrong Argument！");
+```
+
+声明异常的关键字是***throws***，抛出异常的关键字是***throw***。
+
+### 捕获异常
+
+抛出一个异常时，可以在try-catch块中捕获和处理它。
+
+```java
+try{
+    statements;
+}
+catch(Exception1 exVar1){
+    handler for exception1;
+}
+catch(Exception1 exVar2){
+    handler for exception2;
+}
+...
+catch(Exception1 exVarN){
+    handler for exceptionN;
+}
+//处理异常的代码称为异常处理器
+//catch代码处理异常的顺序是一定的，父类不能出现在子类前
+//对于使用同样代码处理不同异常的情况：
+catch(Exception1 |Exception2 |...| ExceptionN ){
+    statements;
+}
+```
+
+### 从异常中获取信息
+
+|java.lang.Throwable|说明|
+|:---------|:---------|
+|+getMessage():String|返回描述该异常对象的信息|
+|+toString():String|返回三个字符串的连接:<br>1)异常类的全名;<br>2)": "冒号和以一个空白;<br>3)gerMessage()方法。|
+|+printStackTrace():void|在控制台上打印Throwable对象和它的调用栈的跟踪信息|
+|+getStackTrace():StackTraceElement[]|返回一个栈跟踪元素的数组，表示该异常相关对象的栈跟踪信息|
