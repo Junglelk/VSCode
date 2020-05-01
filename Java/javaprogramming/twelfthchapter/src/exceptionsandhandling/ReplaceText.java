@@ -1,4 +1,8 @@
 package exceptionsandhandling;
+/**
+ * 此代码必须使用命令提示符，
+ * 复制到某一文件夹下再编译运行
+ */
 
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -29,8 +33,8 @@ public class ReplaceText {
         }
 
         try (
-            Scanner     input  = new Scanner(args[0]);
-            PrintWriter output = new PrintWriter(args[1]);//创建一个文件并寄生，文件名是args[1]，用于寄生并操控此文件的PrintWriter对象为output
+            Scanner     input  = new Scanner(sourceFile);
+            PrintWriter output = new PrintWriter(targetFile);//创建一个文件并寄生，文件名是targetFile，用于寄生并操控此文件的PrintWriter对象为output
         ) {
             while(input.hasNext()){
                 String s1 = input.nextLine();//读取一行源文件
