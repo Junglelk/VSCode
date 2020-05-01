@@ -200,3 +200,79 @@ file类不包括读写文件内容的方法。
 
 在程序中不要直接使用绝对文件名，否则程序就与编写程序的平台绑定，不利于移植。可以用new File("image/us.gif")这种创建实例方式，其中"/"是Java平台目录分隔符。
 <kbd>java.io.File file = new java.io.File("image/us.gif");</kbd>目录仅到VSCode为止。
+
+## 文件输入和输出
+
+上回说到，File类无法读写文件内容，即IO，也无法创建文件。Java提供I/O类创建对象，这些对象包含文件读写方法。
+
+### PrintWrite写数据
+
+java.io.PrintWriter类可用来创建一个文件并向文本文件写数据。
+构造方法为PrintWriter(Argument)参数可为文件名字符串或文件对象；方法print(argument),可以写入int,long,float,double,boolean型数据；也包含重载的println方法和重载的printf方法。
+
+```java
+public class WriteData {
+    public static void main(String[] args) throws java.io.IOException {//这里必须声明异常
+        /**
+         * 根目录为C:\Users\Jungle\Documents\VSCode>；
+         * 为了整洁将score文件放置于document中。
+         */
+        java.io.File file = new java.io.File("document/scores.txt");
+        if(file.exists()){
+            System.out.println("文件已存在");
+            System.exit(1);
+        }
+        java.io.PrintWriter output = new java.io.PrintWriter(file);//否则这里会报错，无法通过编译
+
+        output.print("John T Smith ");
+        output.println(90);
+        output.print("Eric K Jones ");
+        output.println(78);
+        output.close();
+    }
+}
+```
+
+#### try-with-resources自动关闭资源
+
+```java
+    try(声明和创建资源){
+        使用资源处理文件
+    }
+```
+
+使用try-with-resources重写上面代码
+
+```java
+public class WriteDataAutoClose {
+    public static void main(String[] args) throws Exception {//这里必须声明异常
+
+        java.io.File file = new java.io.File("document/scores.txt");
+        if(file.exists()){
+            System.out.println("文件已存在");
+            System.exit(0);
+        }
+        try(//申请资源
+            java.io.PrintWriter output = new java.io.PrintWriter(file);
+        ){//使用资源
+            output.print("John T Smith ");
+            output.println(90);
+            output.print("Eric K Jones ");
+            output.println(78);
+        }
+    }
+}
+```
+
+### Scanner读取数据
+
+>java.util.Scanner类用来从控制台读取字符和基本类型值。Scanner可以将输入分为由空白字符分割的标记。
+
+```java
+Scanner input = new Scanner(System.in);//从键盘读取输入
+
+/************************/
+
+Scanner input = new Scanner(new File(filename));
+//从文件读取输入
+```
