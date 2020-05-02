@@ -276,3 +276,28 @@ Scanner input = new Scanner(System.in);//从键盘读取输入
 Scanner input = new Scanner(new File(filename));
 //从文件读取输入
 ```
+
+## 从Web上读取数据
+
+>如果知道Web上文件的URL(*Uniform Resource Locator*，统一资源定位符，即为Web文件提供唯一的地址)，即可访问Web上文件中的数据。
+
+例如，www.google.com/index.html是位于Google Web服务器上的文件index.html的URL。在一个Web浏览器中输入URL后。Web服务器将数据传送给浏览器，浏览器将数据渲染图形。
+Java中，为了让应用程序从URL中读取数据，需要使用java.net.URL类的构造方法创建一个URL对象。
+
+```java
+public URL(String spec) throws MalformedURLException
+
+//举例为
+try{
+    URL url = new URL("http://www.google.com/index.html");
+}
+catch (MalformedURLException){
+    ex.printStackTrace();
+}
+```
+
+可以使用URL类中的定义的openStream()方法打开一个输入流，并用这个输入流来创建一个Scanner对象。
+
+```java
+Scanner input = new Scanner(url.openStream);
+```
