@@ -4,6 +4,8 @@
 
 ### Java code  
 暂时主要以JavaProgramming书为基本；使用了三重分支，master→CODE→JavaCode。
+Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重点，暂且一放。
+之后学习泛型和数据结构在Java中的实现(可能会较快，因为毕竟已经知道相关数据结构了)
 ### other  
 暂无
 ## OTHER
