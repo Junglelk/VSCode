@@ -6,6 +6,11 @@
 暂时主要以JavaProgramming书为基本；使用了三重分支，master→CODE→JavaCode。
 Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重点，暂且一放。
 之后学习泛型和数据结构在Java中的实现(可能会较快，因为毕竟已经知道相关数据结构了)
+https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/twelfthchapter/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%96%87%E6%9C%ACIO.md
+
+https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/thirteenthchapter/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3.md
+
+https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/chapter14/JavaFX%E5%9F%BA%E7%A1%80.md
 ### other  
 暂无
 ## OTHER
