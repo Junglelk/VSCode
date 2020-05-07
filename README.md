@@ -7,6 +7,7 @@
 Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重点，暂且一放。
 之后学习泛型和数据结构在Java中的实现(可能会较快，因为毕竟已经知道相关数据结构了)
 
+[继承和多态](https://github.com/Junglelk/VSCode/blob/JavaCode/%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81.md)
 
 [异常处理和文本IO](https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/twelfthchapter/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%96%87%E6%9C%ACIO.md)
 
