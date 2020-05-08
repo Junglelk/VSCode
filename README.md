@@ -15,6 +15,8 @@ Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重�
 
 [JavaFX基础](https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/chapter14/JavaFX%E5%9F%BA%E7%A1%80.md)
 
+另，发现无法从Windows推送，猜测可能是配置的远程仓库URL开头不是https:// 的缘故
+
 ### other  	
 暂无	
 ## OTHER	
