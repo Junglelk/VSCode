@@ -1,7 +1,7 @@
 # VS Code使用记录 
 从一开始就以分支进行管理，初步分为代码和其他；代码又分为Java代码和其他。这中其他会随学习的深入增加。	从一开始就以分支进行管理，初步分为代码和其他；代码又分为Java代码和其他。这中其他会随学习的深入增加。
-## CODE 	## CODE 
-### Java code  	### Java code  
+## CODE 	
+### Java code  	
 暂时主要以JavaProgramming书为基本；使用了三重分支，master→CODE→JavaCode。	暂时主要以JavaProgramming书为基本；使用了三重分支，master→CODE→JavaCode。
 Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重点，暂且一放。	Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重点，暂且一放。
 之后学习泛型和数据结构在Java中的实现(可能会较快，因为毕竟已经知道相关数据结构了)	之后学习泛型和数据结构在Java中的实现(可能会较快，因为毕竟已经知道相关数据结构了)
@@ -15,7 +15,7 @@ Java基本部分学习完毕，JavaFX也有部分涉猎，但并非目前的重�
 
 [抽象类和接口](https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/thirteenthchapter/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3.md)	[抽象类和接口](https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/thirteenthchapter/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3.md)
 [JavaFX基础](https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/chapter14/JavaFX%E5%9F%BA%E7%A1%80.md)	[JavaFX基础](https://github.com/Junglelk/VSCode/blob/JavaCode/Java/javaprogramming/chapter14/JavaFX%E5%9F%BA%E7%A1%80.md)
-### other  	### other  
-暂无	暂无
-## OTHER	## OTHER
-暂无	暂无
+### other  	
+暂无	
+## OTHER	
+暂无	
